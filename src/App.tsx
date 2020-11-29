@@ -1,9 +1,11 @@
 import React from 'react';
-import './App.scss';
+import './App.css';
+import SearchScreen from './components/searchScreen';
+
 
 function App() {
   return (
-    <div><h1>work</h1></div>
+    <SearchScreen></SearchScreen>
   );
 }
 

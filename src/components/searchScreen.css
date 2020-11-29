@@ -1,0 +1,35 @@
+.searchbar,
+.resultBox{
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.searchbar{
+    display: flex;
+    justify-content:  space-evenly;
+    margin-top: 30px;
+}
+
+.searchbarInput{
+    width: 70%;
+    padding: 5px;
+}
+
+.searchbarBtn{
+    width: 20%;
+}
+
+.resultBox{
+    margin-top: 50px;
+}
+
+.resultlist{
+    width: 20%;
+}
+
+.resultlist li{
+    cursor: pointer;
+    transition: .2s;
+}
