@@ -1,35 +1,141 @@
-.searchbar,
-.resultBox{
-    width: 70vw;
+.search-area,
+.result-area{
+    width: 60vw;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
+.search-area{
+    /* justify-content: space-between; */
+    justify-content: center;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid  whitesmoke ;
 
+}
 
 .searchbar{
     display: flex;
-    justify-content:  space-evenly;
-    margin-top: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.searchbar-title{
+    color: whitesmoke;
+    width: 90%;
+    font-size: 22px;
 }
 
 .searchbarInput{
+    border-radius: 5px;
     width: 70%;
     padding: 5px;
 }
 
 .searchbarBtn{
+    margin-left: 10px;
+    min-width: 65px;
     width: 20%;
 }
 
-.resultBox{
-    margin-top: 50px;
+.result-area{
+    flex-direction: column;
+    align-items: center;
+}
+
+.repoistoryList,
+.usersList{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.repository,
+.user{
+    width: 100%;
+    display: flex;
+    color: whitesmoke;
+    margin-top: 22px;
+    border-bottom: 1px solid whitesmoke;
+    flex-wrap: wrap;
+}
+
+.repository-title,
+.repository-info{
+    width: 100%;
+}
+
+.repository-title {
+    font-size: 18px;
+}
+
+.repository-title>a {
+    color: whitesmoke;
+}
+
+.repository-title>a:hover {
+    color: whitesmoke;
+}
+.repository-desc{
+    color:rgba(245, 245, 245, 0.618);
+}
+.repository-info{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-bottom: 7px;
+}
+
+.repository-info div{
+    margin-right: 20px;
+}
+
+.user-image{
+    margin-right: 15px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.user{
+    min-width: 400px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.user-login a,
+.user-login a:hover{
+    color: whitesmoke;
 }
 
 .resultlist{
-    width: 20%;
+    margin-top:20px;
+    width: 300px;
 }
 
 .resultlist li{
+    text-align: center;
     cursor: pointer;
+    float: left;
+    width: 50%;
     transition: .2s;
+    font-weight: 600;
 }
+
+.badge{background-color: rgb(72, 72, 72);}
+.Kotlin{background-color: rgb(118, 76, 0);}
+.JavaScript{background-color: rgb(151, 158, 10);}
+.Python{background-color: rgb(7, 89, 165);}
+.HTML{background-color: rgb(189, 69, 14);}
+.CSS{background-color: rgb(69, 0, 118);}
+.Java{background-color: rgb(169, 112, 6);}
+.PHP{background-color: rgb(37, 4, 128);}
+.Kotlin{background-color: rgb(118, 76, 0);}
+.TypeScript{background-color: rgb(25, 240, 236);}
+.Ruby{background-color: rgb(238, 3, 3);}
+.R{background-color: rgb(62, 88, 194);}
+.Rust{background-color: rgb(106, 54, 26);}
+
+
