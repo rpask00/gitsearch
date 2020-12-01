@@ -32,7 +32,7 @@ class UserScreen extends React.Component<UserScreenProps, UserScreenState> {
 
     render() {
         const { user, userrepos } = this.state
-        if (!user) return <h1>User not found..</h1>
+        if (!user) return <h1 className='not-found'>User not found..</h1>
 
         let repos = userrepos ? <ReppositoriesList repos={userrepos}></ReppositoriesList> : []
 

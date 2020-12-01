@@ -16,7 +16,7 @@ export const Repository: FC<{ repo: RepoData }> = ({ repo }) => {
         <div className="repository">
             <h1 className='repository-title'>
                 <Link to={'/user/' + repo.owner.login}>{repo.owner.login}</Link>/
-                <a href="">{repo.name}</a>
+                <Link to={'/repository/' + repo.name}>{repo.name}</Link>
             </h1>
             <p className='repository-desc'>{repo.description}</p>
             <div className="repository-info">

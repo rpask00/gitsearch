@@ -10,7 +10,6 @@ export const UsersList: FC<{ users: UserData[] }> = ({ users }) => {
 
 
 export const User: FC<{ user: UserData }> = ({ user }) => {
-    // let date = new Date(user.created_at)
     return (<>
         <div className="user">
             <img className='user-image' src={user.avatar_url} alt={user.login} />

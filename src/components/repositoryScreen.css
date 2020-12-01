@@ -1,0 +1,12 @@
+.box{
+    width: 50%;    
+    display: flex;
+    min-width: 300px;
+    margin: 50px auto 50px auto;
+    flex-direction: column;
+}
+
+
+@media screen and (max-width: 900px) {
+   
+}

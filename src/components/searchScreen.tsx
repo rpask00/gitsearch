@@ -1,8 +1,8 @@
 import React, { useEffect, useState, FC } from 'react';
 import { RepoData, UserData } from '../interfaces';
-import './searchScreen.css';
 import { ReppositoriesList } from './RepositoryComp';
 import { UsersList } from './usersComponent';
+import './searchScreen.css';
 
 
 export interface SearchScreenProps { }
@@ -24,7 +24,7 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
         queryString = queryString.split(' ').join('+')
         mode = (mode || this.state.mode)
 
-        let fetchData = await (await fetch('https://api.github.com/search/' + mode + '?q=' + queryString)).json()
+        let fetchData = await (await fetch('https://api.github.com/search/' + mode + '?q=' + queryString + '&sort=stars')).json()
 
         this.setState({
             queryString,

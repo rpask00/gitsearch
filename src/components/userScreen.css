@@ -36,6 +36,11 @@
 
 }
 
+.not-found{
+    color: whitesmoke;
+    text-align: center;
+}
+
 @media screen and (max-width: 900px) {
     .box{
         flex-direction: column;

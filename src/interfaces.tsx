@@ -8,7 +8,7 @@ export interface RepoData {
     language: string,
     commits_url: string,
     description: string,
-
+    html_url: string,
 
 }
 
@@ -17,5 +17,5 @@ export interface UserData {
     avatar_url: string,
     repos_url: string,
     url: string,
-    html_url:string
+    html_url: string
 }

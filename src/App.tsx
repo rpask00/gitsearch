@@ -3,8 +3,10 @@ import { Redirect, Route } from 'react-router-dom';
 import './App.css';
 import SearchScreen from './components/searchScreen';
 import UserScreen from './components/userScreen';
+import RepositoryScreen from './components/repositoryScreen';
 
 export interface UserProps { login: string };
+export interface RepoitoryProps { id: string };
 
 function App() {
   return (<>
@@ -17,6 +19,7 @@ function App() {
     </Route >
 
     <Route path='/user/:login' component={UserScreen}></Route >
+    <Route path='/repository/:id' component={RepositoryScreen}></Route >
 
   </>);
 }
