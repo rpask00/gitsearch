@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { match } from 'react-router-dom';
 import { RepoData, UserData } from '../interfaces';
-import './repositoryScreen.css'
+import '../styles/repositoryScreen.css'
 import Axios from 'axios';
 import { RepoitoryProps } from '../App';
 
 export interface RepositoryScreenProps {
-    match: match<RepoitoryProps>
+    match: match<RepoitoryProps>,
+    location: any
 }
 
 export interface RepositoryScreenState {
@@ -18,9 +19,9 @@ class RepositoryScreen extends React.Component<RepositoryScreenProps, Repository
     state: RepositoryScreenState = {}
 
     componentDidMount() {
-        Axios.get('https://api.github.com/search/repositories?q=' + this.props.match.params.id)
+        Axios.get(this.props.location.state)
             .then(res => {
-                const repository: RepoData = res.data.items[0]
+                const repository: RepoData = res.data
                 let commitsurl = repository.commits_url.split('commits')
                 commitsurl.pop()
                 return Promise.all([repository, Axios.get(commitsurl.join('') + 'commits')])
@@ -38,14 +39,27 @@ class RepositoryScreen extends React.Component<RepositoryScreenProps, Repository
         let commits = repositoryCommits ? repositoryCommits.map(commit => <Commit key={commit.sha} commit={commit.commit}></Commit>) : []
 
         return (
-            <div className="box">
+            <div className="repository-box">
                 <div className="userbox">
-                    {/* <img src={user.avatar_url} alt={user.login} /> */}
-                    <h1><a target='blank' href={repository.html_url}>{repository.full_name}</a></h1>
-                    <p>{repository.description}</p>
+                    <h1>
+                        <a target='blank' href={repository.owner.html_url}>
+                            <i className="demo-icon icon-user"></i>
+                            {repository.owner.login}
+                        </a>
+                        <a target='blank' href={repository.html_url}>
+                            <i className="demo-icon icon-bookmark"></i>
+                            {repository.name}
+                        </a>
+                    </h1>
+                    <p className='repository-description'>
+                        <span className="title">about
+                        <i className="demo-icon icon-search"></i>
+                        </span>
+                        {repository.description}
+                    </p>
                 </div>
                 <div className="commits">
-                    <h2>Commits:</h2>
+                    <p className="title">commits<i className="demo-icon icon-flow-branch"></i> </p>
                     {commits}
                 </div>
             </div>
@@ -66,10 +80,10 @@ interface Commit {
 export const Commit: FC<{ commit: Commit }> = ({ commit }) => {
     let date = new Date(commit.committer.date).toLocaleDateString()
     return (<div className='commit'>
-        <h1 className='committer-name'>{commit.committer.name}</h1>
-        <p className='committer-email'>{commit.committer.email}</p>
-        <p className="commit-message">{commit.message}</p>
-        <p className="commit-date">{date}</p>
+        <h1 className='committer-name'><span className="label">Commiter:</span> {commit.committer.name}</h1>
+        <p className='committer-email'><span className="label">email:</span> {commit.committer.email}</p>
+        <p className="commit-message"><span className="label">message:</span> {commit.message}</p>
+        <p className="commit-date"><span className="label">date:</span> {date}</p>
     </div>)
 }
 

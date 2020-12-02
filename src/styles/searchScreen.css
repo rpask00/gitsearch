@@ -58,7 +58,7 @@
 .user{
     width: 100%;
     display: flex;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
     margin-top: 22px;
     border-bottom: 1px solid whitesmoke;
     flex-wrap: wrap;
@@ -81,7 +81,7 @@
     color: whitesmoke;
 }
 .repository-desc{
-    color:rgba(245, 245, 245, 0.618);
+    color:rgba(245, 245, 245, 0.528);
 }
 .repository-info{
     display: flex;
@@ -91,6 +91,11 @@
 
 .repository-info div{
     margin-right: 20px;
+}
+
+.repo-name{
+    color:rgba(245, 245, 245, 0.761);
+
 }
 
 .user-image{

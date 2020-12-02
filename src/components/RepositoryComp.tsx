@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { RepoData } from '../interfaces';
-import './searchScreen.css';
+import '../styles/searchScreen.css';
 
 
 export const ReppositoriesList: FC<{ repos: RepoData[] }> = ({ repos }) => {
@@ -15,8 +15,22 @@ export const Repository: FC<{ repo: RepoData }> = ({ repo }) => {
     return (<>
         <div className="repository">
             <h1 className='repository-title'>
-                <Link to={'/user/' + repo.owner.login}>{repo.owner.login}</Link>/
-                <Link to={'/repository/' + repo.name}>{repo.name}</Link>
+                <i className="demo-icon icon-user"></i>
+                <Link
+                    to={{
+                        pathname: '/user/' + repo.owner.login,
+                        state: repo.owner.url
+                    }}>
+                    {repo.owner.login}
+                </Link>
+                <i className="demo-icon icon-bookmark"></i>
+                <Link
+                    to={{
+                        pathname: '/repository/' + repo.name,
+                        state: repo.url
+                    }}>
+                    <span className='repo-name'>{repo.name}</span>
+                </Link>
             </h1>
             <p className='repository-desc'>{repo.description}</p>
             <div className="repository-info">

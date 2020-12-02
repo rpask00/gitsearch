@@ -9,6 +9,7 @@ export interface UserProps { login: string };
 export interface RepoitoryProps { id: string };
 
 function App() {
+  document.title = 'Git explorer'
   return (<>
     <Route exact path="/">
       <Redirect to="/search" />

@@ -2,12 +2,13 @@ import * as React from 'react';
 import { match } from 'react-router-dom';
 import { UserProps } from './../App';
 import { RepoData, UserData } from '../interfaces';
-import './userScreen.css'
+import '../styles/userScreen.css'
 import Axios from 'axios';
 import { ReppositoriesList } from './RepositoryComp';
 
 export interface UserScreenProps {
-    match: match<UserProps>
+    match: match<UserProps>,
+    location: any
 }
 
 export interface UserScreenState {
@@ -19,9 +20,9 @@ class UserScreen extends React.Component<UserScreenProps, UserScreenState> {
     state: UserScreenState = {}
 
     componentDidMount() {
-        Axios.get('https://api.github.com/search/users?q=' + this.props.match.params.login)
+        Axios.get(this.props.location.state)
             .then(res => {
-                const user: UserData = res.data.items[0]
+                const user: UserData = res.data
                 return Promise.all([user, Axios.get(user.repos_url)])
             })
             .then(([user, repos]) => {
@@ -37,7 +38,7 @@ class UserScreen extends React.Component<UserScreenProps, UserScreenState> {
         let repos = userrepos ? <ReppositoriesList repos={userrepos}></ReppositoriesList> : []
 
         return (
-            <div className="box">
+            <div className="user-box">
                 <div className="userbox">
                     <img src={user.avatar_url} alt={user.login} />
                     <h1><a target='blank' href={user.html_url}>{user.login}</a></h1>

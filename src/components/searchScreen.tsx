@@ -2,7 +2,7 @@ import React, { useEffect, useState, FC } from 'react';
 import { RepoData, UserData } from '../interfaces';
 import { ReppositoriesList } from './RepositoryComp';
 import { UsersList } from './usersComponent';
-import './searchScreen.css';
+import '../styles/searchScreen.css';
 
 
 export interface SearchScreenProps { }
