@@ -1,3 +1,3 @@
 # Github api explorer made with react.
 
-![](https://i.imgur.com/zHm3WL7.png)
+![](https://i.imgur.com/qef8Byj.png)
