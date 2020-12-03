@@ -36,7 +36,7 @@ class RepositoryScreen extends React.Component<RepositoryScreenProps, Repository
         const { repository, repositoryCommits } = this.state
         if (!repository) return <h1 className='not-found'> Repository not found..</h1>
 
-        let commits = repositoryCommits ? repositoryCommits.map(commit => <Commit key={commit.sha} commit={commit.commit}></Commit>) : []
+        let commits = repositoryCommits ? repositoryCommits.map(commit => <CommitComponent key={commit.sha} commit={commit.commit}></CommitComponent>) : []
 
         return (
             <div className="repository-box">
@@ -77,7 +77,7 @@ interface Commit {
     }
 }
 
-export const Commit: FC<{ commit: Commit }> = ({ commit }) => {
+export const CommitComponent: FC<{ commit: Commit }> = ({ commit }) => {
     let date = new Date(commit.committer.date).toLocaleDateString()
     return (<div className='commit'>
         <h1 className='committer-name'><span className="label">Commiter:</span> {commit.committer.name}</h1>
