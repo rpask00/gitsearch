@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { RepoData } from '../interfaces';
 import '../styles/searchScreen.css';
+import '../styles/repositoryComponents.css'
 
 
 export const ReppositoriesList: FC<{ repos: RepoData[] }> = ({ repos }) => {

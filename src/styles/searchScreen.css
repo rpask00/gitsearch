@@ -43,78 +43,6 @@
     align-items: center;
 }
 
-.repoistory-list,
-.usersList {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 50px;
-}
-
-.repository,
-.user {
-    width: 100%;
-    display: flex;
-    color: rgb(255, 255, 255);
-    margin-top: 22px;
-    border-bottom: 1px solid whitesmoke;
-    flex-wrap: wrap;
-}
-
-.repository-title,
-.repository-info {
-    width: 100%;
-}
-
-.repository-title {
-    font-size: 18px;
-}
-
-.repository-title>a {
-    color: whitesmoke;
-}
-
-.repository-title>a:hover {
-    color: whitesmoke;
-}
-
-.repository-desc {
-    color: rgba(245, 245, 245, 0.528);
-}
-
-.repository-info {
-    display: flex;
-    margin-bottom: 7px;
-}
-
-.repository-info div {
-    margin-right: 20px;
-}
-
-.repo-name {
-    color: rgba(245, 245, 245, 0.761);
-
-}
-
-.user-image {
-    margin-right: 15px;
-    width: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.user {
-    min-width: 400px;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.user-login a,
-.user-login a:hover {
-    color: whitesmoke;
-}
 
 .mods {
     width: 70%;
@@ -122,7 +50,6 @@
     display: flex;
     flex-wrap: wrap;
 }
-
 
 ul.serchmode {
     width: 300px;
@@ -142,10 +69,6 @@ ul.sortmode {
     font-weight: 500;
 }
 
-.stars .icon-star {
-    color: goldenrod;
-    margin-left: 20px;
-}
 
 .filter {
     display: flex;
@@ -193,14 +116,7 @@ ul.sortmode {
         width: 200px;
     }
 
-
     .searchbar-title {
-        text-align: center;
-    }
-
-
-
-    .searchbar-btn {
-        margin-top: 10px;
+        font-size: 15px;
     }
 }

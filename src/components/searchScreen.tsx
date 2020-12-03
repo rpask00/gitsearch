@@ -133,9 +133,11 @@ function SearchBar(props: { handleSearch: any }) {
 
     return (<>
         <div className="searchbar">
-            <h1 className='searchbar-title'>Search gitHub uers and repositories</h1>
             <input value={queryString || qstirngSave} type="text" onChange={(e) => setSearchValue(e.target.value)} className="searchbar-input" />
-            <button type="button" onClick={() => props.handleSearch(queryString)} className="btn btn-primary searchbar-btn">Search</button>
+            <button type="button" onClick={() => props.handleSearch(queryString)} className="btn btn-primary searchbar-btn">
+                <i className="demo-icon icon-search"></i>
+                Search
+                </button>
         </div>
     </>);
 }

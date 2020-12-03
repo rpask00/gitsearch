@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { UserData } from '../interfaces';
 import '../styles/searchScreen.css';
+import '../styles/userComponents.css'
 
 export const UsersList: FC<{ users: UserData[] }> = ({ users }) => {
     if (!users.length)

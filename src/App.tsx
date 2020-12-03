@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
 import './App.css';
 import SearchScreen from './components/searchScreen';
 import UserScreen from './components/userScreen';
@@ -13,6 +13,12 @@ function App() {
   let [qstring, changeqstring] = useState('')
 
   return (<>
+    <nav className="navbar navbar-expand-lg ">
+      <Link className="navbar-brand" to="/search#">
+      <i className="demo-icon icon-github-circled"></i>
+        Serch github repositories and users
+        </Link>
+    </nav>
     <Route exact path="/">
       <Redirect to="/search" />
     </Route>

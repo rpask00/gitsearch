@@ -1,8 +1,57 @@
-.repoistory-list,
-.usersList {
+.repoistory-list {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-bottom: 50px;
+}
+
+.repository {
+    width: 100%;
+    display: flex;
+    color: rgb(255, 255, 255);
+    margin-top: 22px;
+    border-bottom: 1px solid whitesmoke;
+    flex-wrap: wrap;
+}
+
+
+.repository-title,
+.repository-info {
+    width: 100%;
+}
+
+.repository-title {
+    font-size: 18px;
+}
+
+.repository-title>a {
+    color: whitesmoke;
+}
+
+.repository-title>a:hover {
+    color: whitesmoke;
+}
+
+.repository-desc {
+    color: rgba(245, 245, 245, 0.528);
+}
+
+.repository-info {
+    display: flex;
+    margin-bottom: 7px;
+}
+
+.repository-info div {
+    margin-right: 20px;
+}
+
+.repo-name {
+    color: rgba(245, 245, 245, 0.761);
+
+}
+
+.stars .icon-star {
+    color: goldenrod;
+    margin-left: 20px;
 }
