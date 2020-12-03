@@ -4,7 +4,7 @@ import { UserProps } from './../App';
 import { RepoData, UserData } from '../interfaces';
 import '../styles/userScreen.css'
 import Axios from 'axios';
-import { ReppositoriesList } from './RepositoryComp';
+import { ReppositoriesList } from './repositoryComponents';
 
 export interface UserScreenProps {
     match: match<UserProps>,

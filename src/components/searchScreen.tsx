@@ -1,7 +1,7 @@
-import React, { useEffect, useState, FC, ReducerStateWithoutAction } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RepoData, UserData } from '../interfaces';
-import { ReppositoriesList } from './RepositoryComp';
-import { UsersList } from './usersComponent';
+import { ReppositoriesList } from './repositoryComponents';
+import { UsersList } from './usersComponents';
 import '../styles/searchScreen.css';
 let qstirngSave = ''
 
@@ -13,17 +13,25 @@ export interface SearchScreenProps {
 
 export interface SearchScreenState {
     fetchData: RepoData[] | UserData[],
+    fetchDataCount: number,
     searchMode: string,
     sortMode: string,
+    perpage: number,
     queryString: string,
+    page: number,
+
 }
+
 
 class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState> {
     state: SearchScreenState = {
         sortMode: 'desc',
         searchMode: 'repositories',
         fetchData: [],
-        queryString: ''
+        queryString: '',
+        perpage: 30,
+        page: 1,
+        fetchDataCount: 1
     }
 
     componentDidMount() {
@@ -32,14 +40,16 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
         if (qstring) this.handleSearch(qstring)
     }
 
-    handleSearch = async (queryString: string, searchMode?: string, sortMode?: string) => {
+    handleSearch = async (queryString: string, searchMode?: string, sortMode?: string, perpage?: number, page?: number) => {
         if (!queryString) return
 
         queryString = queryString.split(' ').join('+')
         searchMode = searchMode || this.state.searchMode
         sortMode = sortMode || this.state.sortMode
+        perpage = perpage || this.state.perpage
+        page = page || this.state.page
 
-        let apilink = 'https://api.github.com/search/' + searchMode + '?q=' + queryString + '&sort=stars&order=' + sortMode
+        let apilink = `https://api.github.com/search/${searchMode}?q=${queryString}&sort=stars&order=${sortMode}&per_page=${perpage}&page=${page}`
         let fetchData = await (await fetch(apilink)).json()
 
         this.props.changeqstring(queryString)
@@ -47,32 +57,55 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
             queryString,
             searchMode,
             sortMode,
-            fetchData: fetchData.items ? fetchData.items : []
+            perpage,
+            page,
+            fetchData: fetchData.items ? fetchData.items : [],
+            fetchDataCount: fetchData.total_count
         })
 
     }
 
     changeSearchMode = (searchMode: string) => {
-        const { queryString, sortMode } = this.state
-        if (queryString) this.handleSearch(queryString, searchMode, sortMode)
+        const { queryString, sortMode, perpage, page } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
         else this.setState({ searchMode })
     }
 
     changeSortingMode = (sortMode: string) => {
-        const { queryString, searchMode } = this.state
-        if (queryString) this.handleSearch(queryString, searchMode, sortMode)
+        const { queryString, searchMode, perpage, page } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
         else this.setState({ sortMode })
     }
 
+    changePerPage = (perpage: number) => {
+        const { queryString, searchMode, sortMode, page } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
+        else this.setState({ perpage })
+    }
+
+    changePage = (page: number) => {
+        const { queryString, searchMode, sortMode, perpage } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
+        else this.setState({ page })
+    }
+
     render() {
-        console.log(this.state.fetchData)
+        const { searchMode } = this.state
 
-        let list = this.state.searchMode === 'users' ?
-            <UsersList users={this.state.fetchData as UserData[]}></UsersList> :
-            <ReppositoriesList repos={this.state.fetchData as RepoData[]}></ReppositoriesList>
+        let pagination = <></>
+        let list = <></>
 
-        if (!this.state.queryString)
-            list = <></>
+        if (this.state.queryString && this.state.fetchDataCount) {
+            pagination = <Pagination
+                changePage={this.changePage}
+                currentpage={this.state.page}
+                perpage={this.state.perpage}
+                rescount={this.state.fetchDataCount}></Pagination>
+
+            list = searchMode === 'users' ?
+                <UsersList users={this.state.fetchData as UserData[]}></UsersList> :
+                <ReppositoriesList repos={this.state.fetchData as RepoData[]}></ReppositoriesList>
+        }
 
         return (<>
             <div className='search-area'>
@@ -81,17 +114,20 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
             <div className='result-area'>
                 <div className="mods">
                     <SearchModesList changeSearchMode={this.changeSearchMode}></SearchModesList>
-                    <SortingMode changeSortingMode={this.changeSortingMode}></SortingMode>
+                    {
+                        searchMode !== 'users' ? <SortingMode changeSortingMode={this.changeSortingMode}></SortingMode> : ''
+                    }
+                    <PerPage changePerPage={this.changePerPage}></PerPage>
                 </div>
                 {list}
+                {pagination}
             </div>
         </>);
     }
 }
 
 
-interface SearchBarProps { handleSearch: any }
-function SearchBar(props: SearchBarProps) {
+function SearchBar(props: { handleSearch: any }) {
     const [queryString, setSearchValue] = useState('')
 
 
@@ -105,16 +141,16 @@ function SearchBar(props: SearchBarProps) {
 }
 
 
-interface SearchModeProps { changeSearchMode: any }
-function SearchModesList(props: SearchModeProps) {
+function SearchModesList({ changeSearchMode }: { changeSearchMode: any }) {
     const [SearchMode, setSearchMode] = useState('repositories')
 
     useEffect(() => {
-        props.changeSearchMode(SearchMode)
-    }, [SearchMode]);
+        changeSearchMode(SearchMode)
+    }, [SearchMode, changeSearchMode]);
 
-    return (<>
-        <ul className="list-group list-group-horizontal">
+    return (<div className='filter'>
+        <label >Show:</label>
+        <ul className="list-group list-group-horizontal serchmode">
             <li className={`
                 list-group-item
                 ${SearchMode === 'repositories' ? 'active' : ''}
@@ -124,31 +160,91 @@ function SearchModesList(props: SearchModeProps) {
                 ${SearchMode === 'users' ? 'active' : ''}
             `} onClick={() => setSearchMode('users')}>Users</li>
         </ul>
-    </>)
+    </div>)
 }
 
 
-interface SortingModeProps { changeSortingMode: any }
-function SortingMode(props: SortingModeProps) {
+function SortingMode({ changeSortingMode }: { changeSortingMode: any }) {
     const [SortingMode, setSortingMode] = useState('desc')
 
     useEffect(() => {
-        props.changeSortingMode(SortingMode)
-    }, [SortingMode]);
+        changeSortingMode(SortingMode)
+    }, [SortingMode, changeSortingMode]);
 
-    return (<>
-        <ul className="list-group list-group-horizontal ">
+    return (<div className='filter'>
+        <label >Sot by stars</label>
+        <ul className="list-group list-group-horizontal sortmode">
             <li className={`
                 list-group-item
                 ${SortingMode === 'desc' ? 'active' : ''}
-            `} onClick={() => setSortingMode('desc')}><i className="demo-icon icon-star"></i></li>
+            `} onClick={() => setSortingMode('desc')}><i className="demo-icon icon-star"></i>
+            Desc
+            </li>
             <li className={`
                 list-group-item
                 ${SortingMode === 'asc' ? 'active' : ''}
-            `} onClick={() => setSortingMode('asc')}><i className="demo-icon icon-star-empty"></i></li>
+            `} onClick={() => setSortingMode('asc')}><i className="demo-icon icon-star-empty"></i>
+            Asc
+            </li>
         </ul>
-    </>)
+    </div>)
 }
 
+
+function PerPage({ changePerPage }: { changePerPage: any }) {
+    const [perpageval, setPerPage] = useState(30)
+
+    useEffect(() => {
+        changePerPage(perpageval)
+    }, [perpageval, changePerPage]);
+
+    return (<div className='filter' >
+        <label >Results per page</label>
+        <ul className="pagination perpageval">
+            <li className={`page-item ${perpageval === 30 ? 'active' : ''}`} onClick={() => setPerPage(30)}>
+                <span className="page-link" >30</span>
+            </li>
+            <li className={`page-item ${perpageval === 50 ? 'active' : ''}`} onClick={() => setPerPage(50)}>
+                <span className="page-link" >50</span>
+            </li>
+            <li className={`page-item ${perpageval === 100 ? 'active' : ''}`} onClick={() => setPerPage(100)}>
+                <span className="page-link">100</span>
+            </li>
+        </ul>
+    </div >)
+}
+
+
+interface PaginationProps {
+    changePage: any,
+    currentpage: number,
+    rescount: number,
+    perpage: number
+}
+
+function Pagination({ changePage, currentpage, rescount, perpage }: PaginationProps) {
+    const [selectedpage, selectPage] = useState(currentpage)
+
+    useEffect(() => {
+        changePage(selectedpage)
+        window.scrollTo(0, 0)
+    }, [selectedpage, changePage]);
+
+    rescount = Math.min(rescount, 1000)
+    let pages = []
+
+    for (let i = 1; i <= Math.ceil(rescount / perpage); i++) {
+        pages.push(
+            <li key={i}
+                className={`page-item ${selectedpage === i ? 'active' : ''}`}
+                onClick={() => selectPage(i)}>
+                <span className="page-link" >{i}</span>
+            </li>)
+    }
+
+    return (<ul className="flex-wrap pagination selectedpage">
+        {pages}
+    </ul>)
+}
 
 export default SearchScreen;

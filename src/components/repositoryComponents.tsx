@@ -9,7 +9,7 @@ export const ReppositoriesList: FC<{ repos: RepoData[] }> = ({ repos }) => {
         return <h1 className='not-found'>Repositories not found..</h1>
 
     let reposList: JSX.Element[] = repos.map(repo => <Repository key={repo.full_name} repo={repo}></Repository>)
-    return <div className='repoistoryList'>{reposList}</div>
+    return <div className='repoistory-list'>{reposList}</div>
 }
 
 

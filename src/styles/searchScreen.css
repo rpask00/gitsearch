@@ -1,52 +1,50 @@
 .search-area,
-.result-area{
-    width: 60vw;
+.result-area {
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
 }
-.search-area{
-    /* justify-content: space-between; */
+
+.search-area {
     justify-content: center;
     margin-top: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid  whitesmoke ;
-
 }
 
-.searchbar{
+.searchbar {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
 }
 
-.searchbar-title{
+.searchbar-title {
     color: whitesmoke;
     width: 90%;
     font-size: 22px;
 }
 
-.searchbar-input{
+.searchbar-input {
     border-radius: 5px;
     width: 70%;
     padding: 5px;
 }
 
-.searchbar-btn{
+.searchbar-btn {
     margin-left: 10px;
     min-width: 75px;
     width: 20%;
 }
 
-.result-area{
+.result-area {
     flex-direction: column;
     align-items: center;
 }
 
-.repoistoryList,
-.usersList{
+.repoistory-list,
+.usersList {
     width: 100%;
     display: flex;
     align-items: center;
@@ -55,7 +53,7 @@
 }
 
 .repository,
-.user{
+.user {
     width: 100%;
     display: flex;
     color: rgb(255, 255, 255);
@@ -65,7 +63,7 @@
 }
 
 .repository-title,
-.repository-info{
+.repository-info {
     width: 100%;
 }
 
@@ -80,69 +78,96 @@
 .repository-title>a:hover {
     color: whitesmoke;
 }
-.repository-desc{
-    color:rgba(245, 245, 245, 0.528);
+
+.repository-desc {
+    color: rgba(245, 245, 245, 0.528);
 }
-.repository-info{
+
+.repository-info {
     display: flex;
-    /* justify-content: space-between; */
     margin-bottom: 7px;
 }
 
-.repository-info div{
+.repository-info div {
     margin-right: 20px;
 }
 
-.repo-name{
-    color:rgba(245, 245, 245, 0.761);
+.repo-name {
+    color: rgba(245, 245, 245, 0.761);
 
 }
 
-.user-image{
+.user-image {
     margin-right: 15px;
     width: 100px;
     border-radius: 50%;
     margin-bottom: 20px;
 }
-.user{
+
+.user {
     min-width: 400px;
     width: 50%;
     align-items: center;
     justify-content: center;
 }
+
 .user-login a,
-.user-login a:hover{
+.user-login a:hover {
     color: whitesmoke;
 }
 
-
-.mods{
-    width: 60%;
-    justify-content: space-between;
+.mods {
+    width: 70%;
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
 }
 
 
-.mods ul{
-    margin-top:20px;
+ul.serchmode {
     width: 300px;
 }
 
-.mods ul li{
+ul.sortmode {
+    width: 200px;
+}
+
+.filter ul li {
     text-align: center;
     cursor: pointer;
     width: 50%;
+    height: 40px;
+    line-height: 15px;
     transition: .2s;
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.stars .icon-star{
+.stars .icon-star {
     color: goldenrod;
     margin-left: 20px;
 }
 
-.badge{background-color: rgb(72, 72, 72);}
+.filter {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.filter label {
+    margin: 0;
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+.filter ul {
+    margin: 0;
+}
+
+ .page-item{
+    cursor: pointer;
+} 
+
+ .badge{background-color: rgb(72, 72, 72);}
 .Kotlin{background-color: rgb(118, 76, 0);}
 .JavaScript{background-color: rgb(151, 158, 10);}
 .Python{background-color: rgb(7, 89, 165);}
@@ -156,27 +181,26 @@
 .R{background-color: rgb(62, 88, 194);}
 .Rust{background-color: rgb(106, 54, 26);}
 
-
 @media screen and (max-width: 900px) {
 
-    .mods{
+    .mods {
         justify-content: center;
         width: 100%;
     }
-    
-    .mods ul{
+
+    .mods ul {
         font-size: 12px;
         width: 200px;
     }
 
- 
-    .searchbar-title{
+
+    .searchbar-title {
         text-align: center;
     }
 
- 
- 
-    .searchbar-btn{
+
+
+    .searchbar-btn {
         margin-top: 10px;
     }
 }
