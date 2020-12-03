@@ -4,6 +4,9 @@ import { UserData } from '../interfaces';
 import '../styles/searchScreen.css';
 
 export const UsersList: FC<{ users: UserData[] }> = ({ users }) => {
+    if (!users.length)
+        return <h1 className="not-found">Users not found..</h1>
+
     let userslist: JSX.Element[] = users.map(user => <User key={user.login} user={user}></User>)
     return <div className='usersList'>{userslist}</div>
 }

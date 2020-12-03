@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { match } from 'react-router-dom';
-import { RepoData, UserData } from '../interfaces';
+import { RepoData } from '../interfaces';
 import '../styles/repositoryScreen.css'
 import Axios from 'axios';
 import { RepoitoryProps } from '../App';

@@ -5,6 +5,9 @@ import '../styles/searchScreen.css';
 
 
 export const ReppositoriesList: FC<{ repos: RepoData[] }> = ({ repos }) => {
+    if (!repos.length)
+        return <h1 className='not-found'>Repositories not found..</h1>
+
     let reposList: JSX.Element[] = repos.map(repo => <Repository key={repo.full_name} repo={repo}></Repository>)
     return <div className='repoistoryList'>{reposList}</div>
 }
@@ -31,6 +34,11 @@ export const Repository: FC<{ repo: RepoData }> = ({ repo }) => {
                     }}>
                     <span className='repo-name'>{repo.name}</span>
                 </Link>
+
+                <span className="stars">
+                    <i className="demo-icon icon-star"></i>
+                    {repo.stargazers_count}
+                </span>
             </h1>
             <p className='repository-desc'>{repo.description}</p>
             <div className="repository-info">

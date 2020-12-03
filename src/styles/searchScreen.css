@@ -28,15 +28,15 @@
     font-size: 22px;
 }
 
-.searchbarInput{
+.searchbar-input{
     border-radius: 5px;
     width: 70%;
     padding: 5px;
 }
 
-.searchbarBtn{
+.searchbar-btn{
     margin-left: 10px;
-    min-width: 65px;
+    min-width: 75px;
     width: 20%;
 }
 
@@ -115,18 +115,31 @@
     color: whitesmoke;
 }
 
-.resultlist{
+
+.mods{
+    width: 60%;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.mods ul{
     margin-top:20px;
     width: 300px;
 }
 
-.resultlist li{
+.mods ul li{
     text-align: center;
     cursor: pointer;
-    float: left;
     width: 50%;
     transition: .2s;
     font-weight: 600;
+}
+
+.stars .icon-star{
+    color: goldenrod;
+    margin-left: 20px;
 }
 
 .badge{background-color: rgb(72, 72, 72);}
@@ -144,3 +157,26 @@
 .Rust{background-color: rgb(106, 54, 26);}
 
 
+@media screen and (max-width: 900px) {
+
+    .mods{
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .mods ul{
+        font-size: 12px;
+        width: 200px;
+    }
+
+ 
+    .searchbar-title{
+        text-align: center;
+    }
+
+ 
+ 
+    .searchbar-btn{
+        margin-top: 10px;
+    }
+}

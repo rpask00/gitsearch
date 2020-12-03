@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/fontello-21d07300/css/fontello.css'
+import './styles/fontello-7941a901/css/fontello.css'
 import { BrowserRouter } from 'react-router-dom'
 
 document.body.style.backgroundColor = "rgb(36,41,46)";

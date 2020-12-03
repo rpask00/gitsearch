@@ -8,6 +8,8 @@
 .icon-flow-branch:before { content: '\e806'; } /* '' */
 .icon-user:before { content: '\e807'; } /* '' */
 .icon-search:before { content: '\e808'; } /* '' */
+.icon-star:before { content: '\e809'; } /* '' */
+.icon-star-empty:before { content: '\e80a'; } /* '' */
 .icon-location:before { content: '\f031'; } /* '' */
 .icon-plus-squared:before { content: '\f0fe'; } /* '' */
 .icon-direction:before { content: '\f124'; } /* '' */
