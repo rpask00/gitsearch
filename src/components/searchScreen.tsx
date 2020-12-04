@@ -66,20 +66,20 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
     }
 
     changeSearchMode = (searchMode: string) => {
-        const { queryString, sortMode, perpage, page } = this.state
-        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
+        const { queryString, sortMode, perpage } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, 1)
         else this.setState({ searchMode })
     }
 
     changeSortingMode = (sortMode: string) => {
-        const { queryString, searchMode, perpage, page } = this.state
-        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
+        const { queryString, searchMode, perpage } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, 1)
         else this.setState({ sortMode })
     }
 
     changePerPage = (perpage: number) => {
-        const { queryString, searchMode, sortMode, page } = this.state
-        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, page)
+        const { queryString, searchMode, sortMode } = this.state
+        if (queryString) this.handleSearch(queryString, searchMode, sortMode, perpage, 1)
         else this.setState({ perpage })
     }
 
