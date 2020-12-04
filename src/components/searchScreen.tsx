@@ -115,7 +115,7 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
                 <div className="mods">
                     <SearchModesList changeSearchMode={this.changeSearchMode}></SearchModesList>
                     {
-                        searchMode !== 'users' ? <SortingMode changeSortingMode={this.changeSortingMode}></SortingMode> : ''
+                        searchMode !== 'users' ? <SortingMode changeSortingMode={this.changeSortingMode}></SortingMode> : <></>
                     }
                     <PerPage changePerPage={this.changePerPage}></PerPage>
                 </div>
@@ -129,7 +129,6 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
 
 function SearchBar(props: { handleSearch: any }) {
     const [queryString, setSearchValue] = useState('')
-
 
     return (<>
         <div className="searchbar">
