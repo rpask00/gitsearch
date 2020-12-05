@@ -130,9 +130,14 @@ class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState>
 function SearchBar(props: { handleSearch: any }) {
     const [queryString, setSearchValue] = useState('')
 
+
     return (<>
         <div className="searchbar">
-            <input value={queryString || qstirngSave} type="text" onChange={(e) => setSearchValue(e.target.value)} className="searchbar-input" />
+            <input value={queryString || qstirngSave} type="text" onChange={(e) => setSearchValue(val => {
+                if (!e.target.value)
+                    qstirngSave = ''
+                return e.target.value
+            })} className="searchbar-input" />
             <button type="button" onClick={() => props.handleSearch(queryString)} className="btn btn-primary searchbar-btn">
                 <i className="demo-icon icon-search"></i>
                 Search
