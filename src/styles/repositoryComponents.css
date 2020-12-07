@@ -19,6 +19,8 @@
 .repository-title,
 .repository-info {
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .repository-title {
@@ -27,6 +29,7 @@
 
 .repository-title>a {
     color: whitesmoke;
+    margin-bottom: 0;
 }
 
 .repository-title>a:hover {

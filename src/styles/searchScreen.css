@@ -7,6 +7,63 @@
     flex-wrap: wrap;
 }
 
+
+.switch {
+    display: flex;
+    list-style: none;
+    padding: 0; 
+    flex-direction: row;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .switch-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+    background-color: whitesmoke;
+    line-height: 100%;
+
+  }
+
+.pagination .switch-item{
+    border :1px solid rgba(32, 36, 41, 0.371); 
+}
+
+.active{
+    background-color:  rgb(32, 36, 41);
+    color: whitesmoke;
+}
+
+.pagination,
+.selectedpage{
+    border-radius: 5px;
+}
+
+.selectedpage{
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.selectedpage .switch-item{
+    padding: 8px;
+}
+
+.selectedpage .switch-item:hover{
+    background-color: rgb(226, 226, 226);
+}
+
+.selectedpage .active:hover{
+    background-color: rgba(32, 36, 41, 0.857);
+}
+
 .search-area {
     justify-content: center;
     margin-top: 30px;
@@ -30,15 +87,28 @@
     border-radius: 5px;
     border: none;
     width: 40%;
+    height: 30px;
     outline: none;
     padding: 5px;
 }
 
 .searchbar-btn {
+    border:none;
+    background-color:  rgb(32, 36, 41);
+    color: whitesmoke;
     margin-left: 10px;
     min-width: 75px;
+    outline: none;
+    border-radius: 10px;
     width: 20%;
+    transition: .2s;
+    cursor: pointer;
 }
+
+.searchbar-btn:hover{
+    background-color:  rgb(46, 51, 56);
+}
+
 
 .result-area {
     flex-direction: column;
@@ -93,7 +163,14 @@ ul.sortmode {
 .page-item {
     cursor: pointer;
 }
-.badge {background-color: rgb(72, 72, 72);}
+.badge {
+    background-color: rgb(72, 72, 72);
+     margin-right:  2px;
+    padding: 2px 5px 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
 .Kotlin {background-color: rgb(118, 76, 0);}
 .JavaScript {background-color: rgb(151, 158, 10);}
 .Python {background-color: rgb(7, 89, 165);}

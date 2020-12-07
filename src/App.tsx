@@ -13,7 +13,7 @@ function App() {
   let [qstring, changeqstring] = useState('')
 
   return (<>
-    <nav className="navbar navbar-expand-lg ">
+    <nav className="navbar  ">
       <Link className="navbar-brand" to="/search#">
       <i className="demo-icon icon-github-circled"></i>
         Serch github repositories and users

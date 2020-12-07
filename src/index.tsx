@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import './styles/fontello/css/fontello.css'
 import { BrowserRouter } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 document.body.style.backgroundColor = "rgb(36,41,46)";
 

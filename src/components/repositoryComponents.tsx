@@ -43,7 +43,7 @@ export const Repository: FC<{ repo: RepoData }> = ({ repo }) => {
             </h1>
             <p className='repository-desc'>{repo.description}</p>
             <div className="repository-info">
-                <div className={`badge ${repo.language}`}>{repo.language}</div>
+                { repo.language  ? <div className={`badge ${repo.language}`}>{repo.language}</div> : <></>}
                 <div className='repository-date'>Created at {date.toLocaleDateString()}</div>
             </div>
         </div>

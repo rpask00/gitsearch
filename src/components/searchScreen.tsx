@@ -138,7 +138,8 @@ function SearchBar(props: { handleSearch: any }) {
                     qstirngSave = ''
                 return e.target.value
             })} className="searchbar-input" />
-            <button type="button" onClick={() => props.handleSearch(queryString)} className="btn btn-primary searchbar-btn">
+            <button type="button" onClick={() => props.handleSearch(queryString)}
+                className="btn btn-primary searchbar-btn">
                 <i className="demo-icon icon-search"></i>
                 Search
                 </button>
@@ -156,15 +157,19 @@ function SearchModesList({ changeSearchMode }: { changeSearchMode: any }) {
 
     return (<div className='filter'>
         <label >Show:</label>
-        <ul className="list-group list-group-horizontal serchmode">
+        <ul className="switch serchmode">
             <li className={`
-                list-group-item
+                switch-item
                 ${SearchMode === 'repositories' ? 'active' : ''}
-            `} onClick={() => setSearchMode('repositories')}>Repositories</li>
+            `} onClick={() => setSearchMode('repositories')}>
+                <p>Repositories</p>
+            </li>
             <li className={`
-                list-group-item
+                switch-item
                 ${SearchMode === 'users' ? 'active' : ''}
-            `} onClick={() => setSearchMode('users')}>Users</li>
+            `} onClick={() => setSearchMode('users')}>
+                <p>Users</p>
+            </li>
         </ul>
     </div>)
 }
@@ -179,15 +184,15 @@ function SortingMode({ changeSortingMode }: { changeSortingMode: any }) {
 
     return (<div className='filter'>
         <label >Sot by stars</label>
-        <ul className="list-group list-group-horizontal sortmode">
+        <ul className="switch sortmode">
             <li className={`
-                list-group-item
+                switch-item
                 ${SortingMode === 'desc' ? 'active' : ''}
             `} onClick={() => setSortingMode('desc')}><i className="demo-icon icon-star"></i>
             Desc
             </li>
             <li className={`
-                list-group-item
+                switch-item
                 ${SortingMode === 'asc' ? 'active' : ''}
             `} onClick={() => setSortingMode('asc')}><i className="demo-icon icon-star-empty"></i>
             Asc
@@ -206,14 +211,14 @@ function PerPage({ changePerPage }: { changePerPage: any }) {
 
     return (<div className='filter' >
         <label >Results per page</label>
-        <ul className="pagination perpageval">
-            <li className={`page-item ${perpageval === 30 ? 'active' : ''}`} onClick={() => setPerPage(30)}>
+        <ul className="pagination switch">
+            <li className={`switch-item  ${perpageval === 30 ? 'active' : ''}`} onClick={() => setPerPage(30)}>
                 <span className="page-link" >30</span>
             </li>
-            <li className={`page-item ${perpageval === 50 ? 'active' : ''}`} onClick={() => setPerPage(50)}>
+            <li className={`switch-item  ${perpageval === 50 ? 'active' : ''}`} onClick={() => setPerPage(50)}>
                 <span className="page-link" >50</span>
             </li>
-            <li className={`page-item ${perpageval === 100 ? 'active' : ''}`} onClick={() => setPerPage(100)}>
+            <li className={`switch-item  ${perpageval === 100 ? 'active' : ''}`} onClick={() => setPerPage(100)}>
                 <span className="page-link">100</span>
             </li>
         </ul>
@@ -242,13 +247,13 @@ function Pagination({ changePage, currentpage, rescount, perpage }: PaginationPr
     for (let i = 1; i <= Math.ceil(rescount / perpage); i++) {
         pages.push(
             <li key={i}
-                className={`page-item ${selectedpage === i ? 'active' : ''}`}
+                className={`switch-item ${selectedpage === i ? 'active' : ''}`}
                 onClick={() => selectPage(i)}>
                 <span className="page-link" >{i}</span>
             </li>)
     }
 
-    return (<ul className="flex-wrap pagination selectedpage">
+    return (<ul className="selectedpage">
         {pages}
     </ul>)
 }
