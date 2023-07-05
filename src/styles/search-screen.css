@@ -1,0 +1,229 @@
+.search-area,
+.result-area {
+   width: 80vw;
+   margin-left: auto;
+   margin-right: auto;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.switch {
+   display: flex;
+   list-style: none;
+   padding: 0;
+   flex-direction: row;
+   border-radius: 15px;
+   overflow: hidden;
+}
+
+.switch-item {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* position: relative; */
+   padding: 5px;
+   color: black;
+   text-decoration: none;
+   background-color: whitesmoke;
+   line-height: 100%;
+}
+
+.pagination .switch-item {
+   border: 1px solid rgba(49, 87, 44, 0.371);
+}
+
+.active {
+   background-color: rgb(49, 87, 44);
+   color: whitesmoke;
+}
+
+.pagination,
+.selectedpage {
+   border-radius: 5px;
+}
+
+.selectedpage {
+   align-items: center;
+   display: flex;
+   justify-content: left;
+   flex-wrap: wrap;
+   cursor: pointer;
+}
+
+.selectedpage .switch-item {
+   padding: 8px;
+}
+
+.selectedpage .switch-item:hover {
+   background-color: rgb(226, 226, 226);
+}
+
+.selectedpage .active:hover {
+   background-color: rgba(49, 87, 44, 0.857);
+}
+
+.search-area {
+   justify-content: center;
+   margin-top: 30px;
+   padding-bottom: 30px;
+}
+
+.searchbar {
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+   justify-content: center;
+}
+
+.searchbar-title {
+   color: whitesmoke;
+   width: 90%;
+   font-size: 22px;
+}
+
+.searchbar-input {
+   border-radius: 5px;
+   border: none;
+   width: 40%;
+   height: 30px;
+   outline: none;
+   padding: 5px;
+}
+
+.searchbar-btn {
+   border: none;
+   background-color: rgb(49, 87, 44);
+   color: whitesmoke;
+   margin-left: 10px;
+   min-width: 75px;
+   outline: none;
+   border-radius: 10px;
+   width: 20%;
+   transition: 0.2s;
+   cursor: pointer;
+}
+
+.searchbar-btn:hover {
+   background-color: rgb(46, 51, 56);
+}
+
+.result-area {
+   flex-direction: column;
+   align-items: center;
+}
+
+.mods {
+   width: 70%;
+   justify-content: space-evenly;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+ul.serchmode {
+   width: 300px;
+}
+
+ul.sortmode {
+   width: 200px;
+}
+
+.filter ul li {
+   text-align: center;
+   cursor: pointer;
+   width: 50%;
+   height: 40px;
+   line-height: 15px;
+   transition: 0.2s;
+   font-weight: 500;
+}
+
+.filter {
+   display: flex;
+   margin-bottom: 20px;
+   flex-direction: column;
+}
+
+.filter label {
+   margin: 0;
+   font-size: 15px;
+   text-align: center;
+   color: whitesmoke;
+   margin-bottom: 10px;
+}
+
+.filter ul {
+   margin: 0;
+}
+
+.page-item {
+   cursor: pointer;
+}
+.badge {
+   background-color: rgb(72, 72, 72);
+   margin-right: 2px;
+   padding: 2px 5px 2px 5px;
+   border-radius: 5px;
+   font-size: 12px;
+   font-weight: 700;
+}
+.Kotlin {
+   background-color: rgb(118, 76, 0);
+}
+.JavaScript {
+   background-color: rgb(151, 158, 10);
+}
+.Python {
+   background-color: rgb(7, 89, 165);
+}
+.HTML {
+   background-color: rgb(189, 69, 14);
+}
+.CSS {
+   background-color: rgb(69, 0, 118);
+}
+.Java {
+   background-color: rgb(169, 112, 6);
+}
+.PHP {
+   background-color: rgb(37, 4, 128);
+}
+.Kotlin {
+   background-color: rgb(118, 76, 0);
+}
+.TypeScript {
+   background-color: rgb(25, 240, 236);
+}
+.Ruby {
+   background-color: rgb(238, 3, 3);
+}
+.R {
+   background-color: rgb(62, 88, 194);
+}
+.Rust {
+   background-color: rgb(106, 54, 26);
+}
+
+@media screen and (max-width: 900px) {
+   .mods {
+      justify-content: center;
+      width: 100%;
+   }
+
+   .mods ul {
+      font-size: 12px;
+      width: 200px;
+   }
+
+   .searchbar-title {
+      font-size: 15px;
+   }
+}
+
+.Mui-selected {
+   background: rgba(236, 243, 158, 0.33) !important;
+}
+
+.MuiFilledInput-root {
+   color: white !important;
+   background: rgba(236, 243, 158, 0.14) !important;
+}

@@ -1,0 +1,45 @@
+.icon-plus:before {
+   content: '\e800';
+} /* '' */
+.icon-minus:before {
+   content: '\e801';
+} /* '' */
+.icon-down-open:before {
+   content: '\e802';
+} /* '' */
+.icon-left:before {
+   content: '\e803';
+} /* '' */
+.icon-lock:before {
+   content: '\e804';
+} /* '' */
+.icon-bookmark:before {
+   content: '\e805';
+} /* '' */
+.icon-flow-branch:before {
+   content: '\e806';
+} /* '' */
+.icon-user:before {
+   content: '\e807';
+} /* '' */
+.icon-search:before {
+   content: '\e808';
+} /* '' */
+.icon-star:before {
+   content: '\e809';
+} /* '' */
+.icon-star-empty:before {
+   content: '\e80a';
+} /* '' */
+.icon-location:before {
+   content: '\f031';
+} /* '' */
+.icon-github-circled:before {
+   content: '\f09b';
+} /* '' */
+.icon-plus-squared:before {
+   content: '\f0fe';
+} /* '' */
+.icon-direction:before {
+   content: '\f124';
+} /* '' */

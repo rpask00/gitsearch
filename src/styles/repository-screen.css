@@ -1,0 +1,94 @@
+.repository-box {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   margin: 10px auto 50px auto;
+   align-items: center;
+}
+
+.repository-box .userbox {
+   width: 100%;
+   text-align: center;
+   margin-right: 0px;
+}
+
+.userbox h1 {
+   text-align: center;
+}
+
+.not-found {
+   margin-top: 30px;
+   text-align: center;
+}
+
+.repository-description {
+   display: flex;
+   flex-direction: column;
+
+   text-align: left;
+   color: rgba(245, 245, 245, 0.693);
+}
+
+.title {
+   margin-bottom: 10px;
+   border-bottom: 1px solid white;
+   width: 100%;
+   font-size: 25px;
+   color: whitesmoke;
+}
+
+.commits {
+   width: 100%;
+}
+
+.commit {
+   color: whitesmoke;
+   width: 100%;
+   background-color: rgba(79, 119, 45, 0.21);
+   padding: 20px;
+   margin-bottom: 10px;
+}
+
+.committer-name {
+   font-size: 22px;
+}
+
+.commit h1 span,
+.commit p span {
+   display: block;
+   font-size: 15px;
+   color: rgb(245, 245, 245);
+   color: rgba(245, 245, 245, 0.528);
+   width: 100%;
+   text-align: left;
+}
+
+@media screen and (max-width: 900px) {
+   .repository-box {
+      width: 100%;
+   }
+
+   .repository-box .userbox {
+      width: 70%;
+      margin: 0;
+   }
+
+   .userbox h1 {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+   }
+
+   .title {
+      font-size: 15px;
+   }
+
+   .commits {
+      width: 70%;
+      margin-left: 0 auto 0 auto;
+   }
+
+   .repository-description {
+      margin-left: 0;
+   }
+}

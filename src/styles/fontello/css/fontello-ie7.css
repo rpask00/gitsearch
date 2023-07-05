@@ -1,0 +1,58 @@
+[class^='icon-'],
+[class*=' icon-'] {
+   font-family: 'fontello';
+   font-style: normal;
+   font-weight: normal;
+
+   /* fix buttons height */
+   line-height: 1em;
+
+   /* you can be more comfortable with increased icons size */
+   /* font-size: 120%; */
+}
+
+.icon-plus {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;');
+}
+.icon-minus {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe801;&nbsp;');
+}
+.icon-down-open {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe802;&nbsp;');
+}
+.icon-left {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe803;&nbsp;');
+}
+.icon-lock {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe804;&nbsp;');
+}
+.icon-bookmark {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe805;&nbsp;');
+}
+.icon-flow-branch {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe806;&nbsp;');
+}
+.icon-user {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe807;&nbsp;');
+}
+.icon-search {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe808;&nbsp;');
+}
+.icon-star {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe809;&nbsp;');
+}
+.icon-star-empty {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xe80a;&nbsp;');
+}
+.icon-location {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xf031;&nbsp;');
+}
+.icon-github-circled {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xf09b;&nbsp;');
+}
+.icon-plus-squared {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xf0fe;&nbsp;');
+}
+.icon-direction {
+   *zoom: expression(this.runtimeStyle[ 'zoom'] = '1', this.innerHTML = '&#xf124;&nbsp;');
+}

@@ -1,0 +1,56 @@
+.usersList {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin-bottom: 50px;
+}
+
+.user {
+   display: flex;
+   color: rgb(255, 255, 255);
+   margin-top: 22px;
+   background-color: rgba(79, 119, 45, 0.16);
+   border-radius: 3px;
+   padding: 15px;
+   flex-wrap: wrap;
+   min-width: 400px;
+   width: 50%;
+   align-items: center;
+   justify-content: center;
+   transition: ease-in-out 0.15s;
+}
+
+.user:hover {
+   background-color: rgba(79, 119, 45, 0.45);
+}
+
+.user-image {
+   margin-right: 15px;
+   width: 100px;
+   border-radius: 50%;
+}
+
+.user-login a,
+.user-login a:hover {
+   color: whitesmoke;
+}
+
+@media screen and (max-width: 900px) {
+   .usersList {
+      width: 60%;
+   }
+
+   .user {
+      min-width: 300px;
+      width: 60%;
+   }
+
+   .user h1 {
+      font-size: 25px;
+   }
+
+   .user-image {
+      width: 60px;
+   }
+}

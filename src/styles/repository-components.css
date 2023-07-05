@@ -1,0 +1,68 @@
+.repoistory-list {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin-bottom: 50px;
+}
+
+.repository {
+   width: 100%;
+   display: flex;
+   color: rgb(255, 255, 255);
+   background-color: rgba(79, 119, 45, 0.16);
+   padding: 15px;
+   border-radius: 3px;
+   margin-top: 22px;
+   transition: ease-in-out 0.15s;
+   flex-wrap: wrap;
+}
+
+.repository:hover {
+   background-color: rgba(79, 119, 45, 0.45);
+}
+
+.repository-title,
+.repository-info {
+   width: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+.repository-title {
+   font-size: 18px;
+}
+
+.repository-title > a {
+   color: whitesmoke;
+   margin-bottom: 0;
+}
+
+.repository-title > a:hover {
+   color: whitesmoke;
+}
+
+.repository-desc {
+   color: rgba(245, 245, 245, 0.528);
+   white-space: break-spaces;
+   overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.repository-info {
+   display: flex;
+   margin-bottom: 7px;
+}
+
+.repository-info div {
+   margin-right: 20px;
+}
+
+.repo-name {
+   color: rgba(245, 245, 245, 0.761);
+}
+
+.stars .icon-star {
+   color: goldenrod;
+   margin-left: 20px;
+}
