@@ -1,5 +1,5 @@
 # Github api explorer made with react.
 
-heroku - https://gitexplorerr.herokuapp.com/search
+hosting - https://gitsearch-af954.firebaseapp.com/
 
-![](https://i.imgur.com/qef8Byj.png)
+![](https://i.imgur.com/AnxkKgh.png)
